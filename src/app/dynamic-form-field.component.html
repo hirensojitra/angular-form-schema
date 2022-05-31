@@ -1,0 +1,26 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="field.controlType">
+    <mat-form-field appearance="fill" *ngSwitchCase="'textbox'">
+      <mat-label>{{field.label}}</mat-label>
+      <input matInput [formControlName]="field.key" [id]="field.key" matInput>
+      <mat-error class="errorMessage" *ngIf="!isValid&&touched">{{field.label}} is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" *ngSwitchCase="'dropdown'">
+      <mat-label>{{field.label}}</mat-label>
+      <mat-select [id]="field.key" [formControlName]="field.key" [value]="field.value">
+        <mat-option *ngFor="let opt of field.options" [value]="opt.value">{{opt.text}}</mat-option>
+      </mat-select>
+      <mat-error class="errorMessage" *ngIf="!isValid&&touched">{{field.label}} is required</mat-error>
+    </mat-form-field>
+    <div *ngSwitchCase="'radio'">
+      <div>
+        <mat-label>{{field.label}}</mat-label>
+      </div>
+      <mat-radio-group class="w-100" aria-label="Select an option" [id]="field.key" [formControlName]="field.key"
+        [value]="field.value">
+        <mat-radio-button *ngFor="let opt of field.options" [value]="opt.value" class="mr-2">{{opt.text}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+</div>

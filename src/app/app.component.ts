@@ -1,10 +1,24 @@
 import { Component } from '@angular/core';
 
+import { FormService } from './form.service';
+import { FormBase } from './form-base';
+import { Observable } from 'rxjs';
+
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  selector: 'app-root',
+  template: `
+    <div>
+      <h2>Job Application for Heroes</h2>
+      <app-dynamic-form [fields]="fields$ | async"></app-dynamic-form>
+    </div>
+  `,
+  providers: [FormService],
 })
-export class AppComponent  {
-  name = 'Angular';
+export class AppComponent {
+  fields$: Observable<FormBase<any>[]>;
+
+  constructor(service: FormService) {
+    this.fields$ = service.getFields();
+  }
 }
+
