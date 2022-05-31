@@ -24,7 +24,7 @@ export class FormBase<T> {
     this.label = options.label || '';
     this.required = !!options.required;
     this.order = options.order === undefined ? 1 : options.order;
-    this.controlType = options.controlType || '';
+    this.controlType = options.controlType || 'textbox';
     this.type = options.type || '';
     this.options = options.options || [];
     this.blankNext = options.blankNext || false;
