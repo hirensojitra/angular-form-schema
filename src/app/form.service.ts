@@ -28,7 +28,7 @@ export class FormService {
         required: true,
         options: [
           { value: 'male', text: 'Male' },
-          { value: 'female', text: 'Female' }
+          { value: 'female', text: 'Female' },
         ],
         value: 'male',
         order: 4,

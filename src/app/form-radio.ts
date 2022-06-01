@@ -1,6 +1,6 @@
 import { FormBase } from './form-base';
 
 export class RadioFields extends FormBase<string> {
-  override controlType = 'radio';
+  // override controlType = 'radio';
+  controlType = 'radio';
 }
-
