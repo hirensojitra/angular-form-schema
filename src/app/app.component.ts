@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
       <app-dynamic-form [fields]="fields$ | async"></app-dynamic-form>
     </div>
   `,
+  styleUrls: ['./app.component.sass'],
   providers: [FormService],
 })
 export class AppComponent {
@@ -21,4 +22,3 @@ export class AppComponent {
     this.fields$ = service.getFields();
   }
 }
-
